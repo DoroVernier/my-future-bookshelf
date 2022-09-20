@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box
     }
     body {
-        background-color: #eee
+        background-color: #f72585
     }
 `;
 
