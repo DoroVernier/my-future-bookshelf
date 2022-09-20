@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import earth from "../public/dark_earth.jpg" 
 import grist from "../public/grist.jpg"
@@ -8,12 +9,14 @@ export default function Card() {
         <>
             <li>
                 <>
+                <div>
                 <Image alt=" "
                 layout="responsive"
-                src={earth}
+                src="earth"
                 width={327}
                 height={500}
                 />
+                </div>
                 <h2>Dark Earth</h2>
                 <h3>Rebecca Stott</h3>
                 </>
@@ -23,7 +26,7 @@ export default function Card() {
                 <>
                 <Image alt=" "
                 layout="responsive"
-                src={grist}
+                src="grist"
                 />
                 <h2>Grist</h2>
                 <h3>Abra Berens</h3>
@@ -33,7 +36,7 @@ export default function Card() {
             <li>    
                 <Image alt=" "
                 layout="responsive"
-                src={wolf}
+                src="wolf"
                 />
                 <h2>The wolf and the woodsman</h2>
                 <h3>Ava Reid</h3>
