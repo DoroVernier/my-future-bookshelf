@@ -1,4 +1,5 @@
 
+import styled from "styled-components"; 
 import Image from "next/image"
 import earth from "../public/dark_earth.jpg" 
 import grist from "../public/grist.jpg"
@@ -11,10 +12,10 @@ export default function Card() {
                 <>
                 <div>
                 <Image alt=" "
-                layout="responsive"
-                src="earth"
-                width={327}
-                height={500}
+                layout="intrinsic"
+                src="/earth"
+                width={128}
+                height={173}
                 />
                 </div>
                 <h2>Dark Earth</h2>
@@ -25,18 +26,23 @@ export default function Card() {
             <li>
                 <>
                 <Image alt=" "
-                layout="responsive"
-                src="grist"
+                layout="intrinsic"
+                src="/grist"
+                width={128}
+                height={173}
                 />
                 <h2>Grist</h2>
                 <h3>Abra Berens</h3>
+                
                 </>
             </li>
 
             <li>    
                 <Image alt=" "
-                layout="responsive"
-                src="wolf"
+                layout="intrinsic"
+                src="/wolf"
+                width={128}
+                height={173}
                 />
                 <h2>The wolf and the woodsman</h2>
                 <h3>Ava Reid</h3>
@@ -44,3 +50,9 @@ export default function Card() {
             </>
     ); 
 }
+
+const Container = styled.div`
+height: 100px; 
+width: 100px; 
+border: 1px solid black; 
+`
