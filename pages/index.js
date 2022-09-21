@@ -1,5 +1,7 @@
 
 import Card from "../components/Card";
+import InputField from "../components/input";
+
 
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
 
     <div>
       <Card/>
+      <InputField/>
     </div>
   
 

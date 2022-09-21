@@ -5,7 +5,10 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box
     }
     body {
-        background-color: #f72585
+        list-style: none; 
+        background-color: #eee; 
+        margin: 0; 
+        padding: 0; 
     }
 `;
 
