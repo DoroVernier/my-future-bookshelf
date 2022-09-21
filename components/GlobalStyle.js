@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         background-color: #eee; 
         margin: 0; 
         padding: 0; 
+        border: 5px solid black; 
+        width: 376px; 
+        height: 667px; 
+
     }
 `;
 

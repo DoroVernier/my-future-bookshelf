@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid';
 
-export default function AddCard() {
+export default function AddCard(onAddNewCard) {
   function handleSubmit(event) {
     event.preventDefault(); 
 
@@ -12,7 +12,7 @@ export default function AddCard() {
     const addNewCard = {id:nanoid(), name: inputValue}; 
 
     onAddNewCard(addNewCard); 
-
+    console.log(addNewCard); 
 
   }  
    

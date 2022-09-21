@@ -3,6 +3,7 @@ import styled from "styled-components";
 import GlobalStyle from "./GlobalStyle";
 
 
+
 export default function Card() {
     return (
         <>
@@ -26,11 +27,17 @@ export default function Card() {
                 <h3>Ava Reid</h3>
             </li>
             </Container>
+
+            <Container>
+            <li onAddNewCard={}>    
+               
+            </li>
+            </Container>
         </>
     ); 
 }
 
-const Container = styled.div`
+const Container = styled.ul`
 
 
 border: 1px solid black; 
