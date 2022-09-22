@@ -4,8 +4,8 @@ export default function AddCard(onAddNewCard) {
   function handleSubmit(event) {
     event.preventDefault(); 
 
-    const card = event.target; 
-    const inputValue = card.name.value; 
+    const form = event.target; 
+    const input = form.name.value; 
 
     console.log(inputValue); 
 
