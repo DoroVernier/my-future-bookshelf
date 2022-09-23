@@ -1,56 +1,24 @@
+import styled from 'styled-components';
 
-
-import styled from "styled-components"; 
-import AddCard from "./input";
-
-
-export default function Card({title, author,isbn}) {
-//  const [newBook, setNewBook] = useState(""); 
-
-// function  addBook(savedBook) {
-//     setNewBook([savedBook, ...newBook]); 
-
-// }
-
-    return (
-        <Booklist>
-        <Container>   
+export default function Card({ title, author }) {
+  return (
+    <Booklist>
+      <Container>
         <h2>{title}</h2>
-       <h3>{author}</h3>
-       <h4>{isbn}</h4>
-        </Container>
-        </Booklist>
-        // <Container>
-        //         <h2>Grist</h2>
-        //         <h3>Abra Berens</h3>
-        // </Container>
-
-        // <Container>
-        //         <h2>The wolf and the woodsman</h2>
-        //         <h3>Ava Reid</h3>
-        //     </Container>
-
-        //     <Container>
-        //     <AddCard onAddBook={addBook} />
-        //      {newBook.map((book) => {
-        //         return (
-        //             <span key={book.id}>
-        //                 <bookWish/>
-        //             </span>
-        //         ); 
-        //     })} 
-        //     </Container>
-        // </Booklist>
-    ); 
+        <h3>{author}</h3>
+      </Container>
+    </Booklist>
+  );
 }
 
 const Booklist = styled.ul`
-list-style: none;
+  list-style: none;
+  padding: none;
+  margin: none;
 `;
 
 const Container = styled.li`
-
-border: 1px solid black; 
-margin: 10px;
-padding: 10px; 
-`; 
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+`;

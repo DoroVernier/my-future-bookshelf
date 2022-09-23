@@ -1,35 +1,23 @@
-import {useState} from 'react'; 
-import Card from "../components/Card";
-import AddCard from "../components/input";
-
-
-
+import { useState } from 'react';
+import Card from '../components/Card';
+import CreateCard from '../components/CreateCard';
 
 export default function WishList() {
- const [newBook, setNewBook] = useState(""); 
+  const [bookList, setBookList] = useState([]);
 
-function  addBook(savedBook) {
-    setNewBook([savedBook, ...newBook]); 
-
- }
-
+  function addBook(savedBook) {
+    setBookList([savedBook, ...bookList]);
+  }
 
   return (
-
     <div>
-      <Card title="Grist" author="Abra Berens" isbn=""/>
-      <Card title="The wolf and the woodsman" author="Ava Reid" isbn=""/>
-      <Card title="Dark Earth" author="Rebecca Stott" isbn=""/>
-      <AddCard onAddBook={addBook} />
-           {newBook.map((book) => {
-                 return (
-                     <span key={book.id}>
-                         <bookWish/>
-                     </span>
-                 ); 
-            })} 
+      <Card title="Grist" author="Abra Berens" />
+      <Card title="The wolf and the woodsman" author="Ava Reid" />
+      <Card title="Dark Earth" author="Rebecca Stott" />
+      <CreateCard onAddBook={addBook} />
+      {bookList.map((book) => {
+        return <Card key={book.id} title={book.title} author={book.author} />;
+      })}
     </div>
-  
-
-  ); 
-} 
+  );
+}
