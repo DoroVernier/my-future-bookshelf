@@ -13,8 +13,6 @@ export default function Card({ title, author }) {
 
 const Booklist = styled.ul`
   list-style: none;
-  padding: none;
-  margin: none;
 `;
 
 const Container = styled.li`
