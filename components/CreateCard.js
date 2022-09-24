@@ -6,8 +6,8 @@ export default function CreateCard({ onAddBook }) {
     event.preventDefault();
 
     const form = event.target;
-    const title = form.title.value;
-    const author = form.author.value;
+    const title = form.title.value.replace(/\s+/g, ' ').trim();
+    const author = form.author.value.replace(/\s+/g, ' ').trim();
 
     const newCard = { id: nanoid(), title: title, author: author };
     console.log(newCard);
