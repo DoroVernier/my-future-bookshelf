@@ -1,21 +1,22 @@
 import styled from 'styled-components';
 
-export default function Card({ title, author }) {
+export default function Card({ title, author, onDelete }) {
   return (
-    <Booklist>
-      <Container>
+    <Container>
+      <Booklist>
         <h2>{title}</h2>
         <h3>{author}</h3>
-      </Container>
-    </Booklist>
+        <button onClick={onDelete}>X</button>
+      </Booklist>
+    </Container>
   );
 }
 
-const Booklist = styled.ul`
+const Container = styled.ul`
   list-style: none;
 `;
 
-const Container = styled.li`
+const Booklist = styled.li`
   border: 1px solid black;
   padding: 10px;
   width: 80vw;

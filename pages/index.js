@@ -10,12 +10,24 @@ export default function WishList() {
     setBookList([savedBook, ...bookList]);
   }
 
+  function deleteBook(id) {
+    const newBookList = bookList.filter((book) => book.id !== id);
+    setBookList(newBookList);
+  }
+
   return (
     <>
       <Wrapper>
         <Headline>My future bookshelf</Headline>
         {bookList.map((book) => {
-          return <Card key={book.id} title={book.title} author={book.author} />;
+          return (
+            <Card
+              key={book.id}
+              title={book.title}
+              author={book.author}
+              onDelete={() => deleteBook(book.id)}
+            />
+          );
         })}
         <Card title="Grist" author="Abra Berens" />
         <Card title="The wolf and the woodsman" author="Ava Reid" />
