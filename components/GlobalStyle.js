@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        list-style: none; 
+    
         background-color: #eee; 
         margin: 0; 
         padding: 0; 

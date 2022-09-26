@@ -1,16 +1,31 @@
 import { nanoid } from 'nanoid';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 export default function CreateCard({ onAddBook }) {
+  const initialCount = 0;
+  const [titleCount, setTitleCount] = useState(0);
+  const titleCounter = (event) => {
+    setTitleCount(event.target.value.length);
+  };
+
+  const [authorCount, setAuthorCount] = useState(0);
+  const authorCounter = (event) => {
+    setAuthorCount(event.target.value.length);
+  };
+
+  const resetCount = () => {
+    setTitleCount(initialCount);
+    setAuthorCount(initialCount);
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
-    const title = form.title.value;
-    const author = form.author.value;
-
+    const title = form.title.value.replace(/\s+/g, ' ').trim();
+    const author = form.author.value.replace(/\s+/g, ' ').trim();
     const newCard = { id: nanoid(), title: title, author: author };
-    console.log(newCard);
 
     onAddBook(newCard);
     form.reset();
@@ -19,28 +34,32 @@ export default function CreateCard({ onAddBook }) {
   return (
     <form onSubmit={handleSubmit}>
       <Note htmlFor="title">
-        Note the title:
+        Note title, author or ISBN:
         <NoteField
           type="text"
           name="title"
           id="title"
-          placeholder="Title (input required)"
+          placeholder="(required)..."
           maxLength="70"
+          onChange={titleCounter}
           required
         />
+        <Counter>{titleCount}/70</Counter>
       </Note>
       <br />
       <Note htmlFor="author">
-        Note the author:
+        Further info:
         <NoteField
           type="text"
           name="author"
           id="author"
-          placeholder="Author"
+          placeholder="(optional)..."
           maxLength="70"
+          onChange={authorCounter}
         />
       </Note>
-      <WishButton>Wish</WishButton>
+      <Counter>{authorCount}/70</Counter>
+      <WishButton onClick={resetCount}>Wish</WishButton>
     </form>
   );
 }
@@ -58,4 +77,9 @@ const Note = styled.label`
 `;
 const NoteField = styled.input`
   margin-left: 1rem;
+`;
+
+const Counter = styled.span`
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
 `;
