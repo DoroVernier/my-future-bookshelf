@@ -1,8 +1,9 @@
 import { nanoid } from 'nanoid';
-import styled from 'styled-components';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 export default function CreateCard({ onAddBook }) {
+  const initialCount = 0;
   const [titleCount, setTitleCount] = useState(0);
   const titleCounter = (event) => {
     setTitleCount(event.target.value.length);
@@ -11,6 +12,11 @@ export default function CreateCard({ onAddBook }) {
   const [authorCount, setAuthorCount] = useState(0);
   const authorCounter = (event) => {
     setAuthorCount(event.target.value.length);
+  };
+
+  const resetCount = () => {
+    setTitleCount(initialCount);
+    setAuthorCount(initialCount);
   };
 
   function handleSubmit(event) {
@@ -53,7 +59,7 @@ export default function CreateCard({ onAddBook }) {
         />
       </Note>
       <Counter>{authorCount}/70</Counter>
-      <WishButton>Wish</WishButton>
+      <WishButton onClick={resetCount}>Wish</WishButton>
     </form>
   );
 }
