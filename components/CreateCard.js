@@ -34,7 +34,7 @@ export default function CreateCard({ onAddBook }) {
   return (
     <form onSubmit={handleSubmit}>
       <Note htmlFor="title">
-        Note title, author or ISBN:
+        Title, author or ISBN:
         <NoteField
           type="text"
           name="title"
@@ -74,12 +74,16 @@ const WishButton = styled.button`
 `;
 const Note = styled.label`
   margin-left: 3rem;
+  color: rgb(228, 229, 242);
+  font-size: 1.5rem;
 `;
 const NoteField = styled.input`
   margin-left: 1rem;
+  height: 2rem;
 `;
 
 const Counter = styled.span`
   margin-left: 0.5rem;
-  font-size: 0.5rem;
+  font-size: 1rem;
+  color: rgb(228, 229, 242);
 `;

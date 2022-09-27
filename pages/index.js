@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import booksForStyle from './../public/body-background.jpg';
+import booksForStyle from './../public/body-background_2.jpg';
 import BookCard from '../components/BookCard';
 import CreateCard from '../components/CreateCard';
 import styled from 'styled-components';
@@ -25,8 +25,8 @@ export default function WishList() {
           src={booksForStyle}
           objectFit="cover"
           layout="fill"
-          width={3456}
-          height={4608}
+          width={5760}
+          height={3840}
         />
       </ImageWrapper>
       <Wrapper>
@@ -60,6 +60,7 @@ const Wrapper = styled.div`
 const Headline = styled.h1``;
 
 const ImageWrapper = styled.div`
+  filter: blur(7px);
   position: fixed;
   height: 100vh;
   width: 100vw;
