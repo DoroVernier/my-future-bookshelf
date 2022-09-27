@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function Card({ title, author, onDelete }) {
+export default function BookCard({ title, author, onDelete }) {
   return (
     <Container>
       <Booklist>
