@@ -32,9 +32,9 @@ export default function CreateCard({ onAddBook }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Note htmlFor="title">
-        Note title, author or ISBN:
+        Title, author or ISBN:
         <NoteField
           type="text"
           name="title"
@@ -46,7 +46,7 @@ export default function CreateCard({ onAddBook }) {
         />
         <Counter>{titleCount}/70</Counter>
       </Note>
-      <br />
+
       <Note htmlFor="author">
         Further info:
         <NoteField
@@ -57,29 +57,43 @@ export default function CreateCard({ onAddBook }) {
           maxLength="70"
           onChange={authorCounter}
         />
+        <Counter>{authorCount}/70</Counter>
       </Note>
-      <Counter>{authorCount}/70</Counter>
       <WishButton onClick={resetCount}>Wish</WishButton>
-    </form>
+    </Form>
   );
 }
 
-const WishButton = styled.button`
-  margin-left: 1rem;
-  background-color: red;
-  border: 1px solid black;
-  border-radius: 50%;
-
-  padding: 0.5rem;
+const Form = styled.form`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5fr 1fr;
 `;
 const Note = styled.label`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-start: 1;
   margin-left: 3rem;
+  color: rgb(228, 229, 242);
+  font-size: 1.5rem;
 `;
 const NoteField = styled.input`
+  grid-column-start: 2;
   margin-left: 1rem;
+  height: 2rem;
 `;
 
 const Counter = styled.span`
+  grid-column-start: 3;
   margin-left: 0.5rem;
-  font-size: 0.5rem;
+  font-size: 1rem;
+  color: rgb(228, 229, 242);
+`;
+
+const WishButton = styled.button`
+  grid-area: 1 2 3 3;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 100%;
 `;

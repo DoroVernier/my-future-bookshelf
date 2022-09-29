@@ -1,9 +1,9 @@
 import { useState } from 'react';
-
-import Card from '../components/BookCard';
+import Image from 'next/image';
+import booksForStyle from './../public/body-background_4.jpg';
+import BookCard from '../components/BookCard';
 import CreateCard from '../components/CreateCard';
 import styled from 'styled-components';
-
 export default function WishList() {
   const [bookList, setBookList] = useState([]);
 
@@ -18,11 +18,21 @@ export default function WishList() {
 
   return (
     <>
+      <ImageWrapper>
+        <Image
+          alt="Background with books"
+          src={booksForStyle}
+          objectFit="cover"
+          layout="fill"
+          width={2103}
+          height={3155}
+        />
+      </ImageWrapper>
       <Wrapper>
         <Headline>My future bookshelf</Headline>
         {bookList.map((book) => {
           return (
-            <Card
+            <BookCard
               key={book.id}
               title={book.title}
               author={book.author}
@@ -30,9 +40,9 @@ export default function WishList() {
             />
           );
         })}
-        <Card title="Grist" author="Abra Berens" />
-        <Card title="The wolf and the woodsman" author="Ava Reid" />
-        <Card title="Dark Earth" author="Rebecca Stott" />
+        <BookCard title="Grist" author="Abra Berens" />
+        <BookCard title="The wolf and the woodsman" author="Ava Reid" />
+        <BookCard title="Dark Earth" author="Rebecca Stott" />
         <CreateCard onAddBook={addBook} />
       </Wrapper>
     </>
@@ -47,3 +57,12 @@ const Wrapper = styled.div`
 `;
 
 const Headline = styled.h1``;
+
+const ImageWrapper = styled.div`
+  filter: blur(4px);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -2;
+`;
