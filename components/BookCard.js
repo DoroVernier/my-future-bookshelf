@@ -19,7 +19,7 @@ export default function BookCard({ title, author, onDelete }) {
 
         <IconWrapper>
           <Toggle onClick={handleClick}>
-            <Icon>
+            <Icon read={read}>
               <Image
                 alt={read ? 'open eye' : 'closed eye'}
                 layout="responsive"
@@ -76,6 +76,7 @@ const IconWrapper = styled.div`
 
 const Toggle = styled.button`
   background-color: transparent;
+  position: relative;
   border: none;
   width: 2.5rem;
   height: 2.5rem;
@@ -84,6 +85,9 @@ const Toggle = styled.button`
   cursor: pointer;
 `;
 const Icon = styled.div`
+  position: relative;
+  top: ${(props) => (props.read ? '16px' : '0px')}
+  
   grid-column-start: 2;
   grid-row-start: 1;
   height: 2rem;
