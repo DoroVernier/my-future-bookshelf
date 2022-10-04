@@ -40,9 +40,9 @@ export default function WishList() {
             />
           );
         })}
-        <BookCard title="Grist" author="Abra Berens" />
+        {/* <BookCard title="Grist" author="Abra Berens" />
         <BookCard title="The wolf and the woodsman" author="Ava Reid" />
-        <BookCard title="Dark Earth" author="Rebecca Stott" />
+        <BookCard title="Dark Earth" author="Rebecca Stott" /> */}
         <CreateCard onAddBook={addBook} />
       </Wrapper>
     </>

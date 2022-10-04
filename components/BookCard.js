@@ -51,7 +51,6 @@ const Container = styled.ul`
 const Card = styled.li`
   background-color: rgba(228, 229, 242, 0.5);
   display: grid;
-  gap: 1rem;
 
   grid-template-columns: 2fr 1fr;
   align-items: center;
@@ -85,9 +84,6 @@ const Toggle = styled.button`
   cursor: pointer;
 `;
 const Icon = styled.div`
-  position: relative;
-  top: ${(props) => (props.read ? '16px' : '0px')}
-  
   grid-column-start: 2;
   grid-row-start: 1;
   height: 2rem;
@@ -96,8 +92,8 @@ const Icon = styled.div`
 
 const Delete = styled.button`
   grid-column-start: 2;
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
   background-color: transparent;
   border: none;
 `;
