@@ -1,7 +1,11 @@
-q;
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import styled from 'styled-components';
+
+const apiURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'; // ISBN adden
+// const apiURL = 'https://www.googleapis.com/books/v1/volumes?q=intitle:${title}+inauthor:${author}'; // ISBN adden
+
+// https://www.googleapis.com/books/v1/volumes?q=intitle:Alice+inauthor:caroll
 
 export default function CreateCard({ onAddBook }) {
   const initialCount = 0;
@@ -23,18 +27,49 @@ export default function CreateCard({ onAddBook }) {
   function handleSubmit(event) {
     event.preventDefault();
 
+    // 1. User hat ISBN eingegeben (9789575854584)
     const form = event.target;
-    const title = form.title.value.replace(/\s+/g, ' ').trim();
-    const author = form.author.value.replace(/\s+/g, ' ').trim();
-    const newCard = { id: nanoid(), title: title, author: author };
+    const isbn = form.isbn.value;
+    // 2. Hole Daten von der Books API zu dieser ISBN
 
-    onAddBook(newCard);
-    form.reset();
+    fetch(apiURL + isbn) // 'https://www.googleapis.com/books/v1/volumes?q=isbn:9789575854584'
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.totalItems > 0) {
+          const book = data.items[0]; // data.items is an array -> just get the first one
+          const title = book.volumeInfo.title;
+          const author = book.volumeInfo.authors[0];
+
+          const newCard = { id: nanoid(), title: title, author: author };
+          console.log(newCard);
+          onAddBook(newCard);
+          form.reset();
+        } else {
+          // Fehlerbehandlung
+        }
+      });
+
+    // 3. Ziehe Titel und Autor aus den API-Daten
+    // 4. Füge Buch / neue Karte mit diesen gewonnenen Daten hinzu
+
+    // const form = event.target;
+    // const title = form.title.value.replace(/\s+/g, ' ').trim();
+    // const author = form.author.value.replace(/\s+/g, ' ').trim();
+    // const newCard = { id: nanoid(), title: title, author: author };
+
+    // onAddBook(newCard);
+    // form.reset();
   }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Note htmlFor="title">
+      <Note htmlFor="isbn">
+        Title, author or ISBN:
+        <NoteField type="text" name="isbn" id="isbn" required />
+      </Note>
+
+      {/* <Note htmlFor="title">
         Title, author or ISBN:
         <NoteField
           type="text"
@@ -59,7 +94,7 @@ export default function CreateCard({ onAddBook }) {
           onChange={authorCounter}
         />
         <Counter>{authorCount}/70</Counter>
-      </Note>
+      </Note> */}
       <WishButton onClick={resetCount}>Wish</WishButton>
     </Form>
   );
