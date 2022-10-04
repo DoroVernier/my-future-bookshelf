@@ -47,6 +47,7 @@ export default function CreateCard({ onAddBook }) {
           name="isbn"
           id="isbn"
           placeholder="9780571200832"
+          pattern=".{13,}"
           required
         />
       </Note>
