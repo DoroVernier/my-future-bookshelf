@@ -32,7 +32,7 @@ export default function CreateCard({ onAddBook }) {
             autoClose: 2000,
             type: 'error',
           });
-
+          form.reset();
           return false;
         }
       });
