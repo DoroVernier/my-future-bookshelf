@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import Image from 'next/image';
 import add from '../public/add.png';
