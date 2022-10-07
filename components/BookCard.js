@@ -5,7 +5,7 @@ import closedEye from '../public/closedEye.png';
 import openEye from '../public/openEye.png';
 import bin from '../public/bin.png';
 
-export default function BookCard({ title, author, onDelete }) {
+export default function BookCard({ title, author, cover, onDelete }) {
   const [read, setRead] = useState(false);
   const handleClick = () => {
     setRead(!read);
@@ -14,9 +14,17 @@ export default function BookCard({ title, author, onDelete }) {
   return (
     <Container>
       <Card>
+        <CoverContainer>
+          <Image
+            src={cover}
+            alt="Cover"
+            layout="responsive"
+            width={57}
+            height={80}
+          />
+        </CoverContainer>
         <Title>{title}</Title>
         <Author>{author}</Author>
-
         <IconWrapper>
           <Toggle onClick={handleClick}>
             <Icon read={read}>
@@ -30,7 +38,6 @@ export default function BookCard({ title, author, onDelete }) {
             </Icon>
           </Toggle>
         </IconWrapper>
-
         <Delete onClick={onDelete}>
           <Image
             alt="bin"
@@ -51,23 +58,30 @@ const Container = styled.ul`
 const Card = styled.li`
   background-color: rgba(228, 229, 242, 0.5);
   display: grid;
-
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   justify-items: center;
   border-radius: 2rem;
   padding: 10px;
   width: 80vw;
 `;
-const Title = styled.h2`
+
+const CoverContainer = styled.div`
   grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  height: 200px;
+  width: 100px;
+`;
+const Title = styled.h2`
+  grid-column-start: 2;
 `;
 const Author = styled.h3`
-  grid-column-start: 1;
+  grid-column-start: 2;
 `;
 
 const IconWrapper = styled.div`
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 1;
   height: 2.5rem;
   width: 2.5rem;
@@ -91,7 +105,7 @@ const Icon = styled.div`
 `;
 
 const Delete = styled.button`
-  grid-column-start: 2;
+  grid-column-start: 3;
   height: 3rem;
   width: 3rem;
   background-color: transparent;
