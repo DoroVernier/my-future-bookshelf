@@ -16,7 +16,7 @@ export default function BookCard({ title, author, cover, onDelete }) {
       <Card>
         <CoverContainer>
           <Image
-            src={`${cover}`}
+            src={cover}
             alt="Cover"
             layout="responsive"
             width={57}
@@ -58,7 +58,7 @@ const Container = styled.ul`
 const Card = styled.li`
   background-color: rgba(228, 229, 242, 0.5);
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   justify-items: center;
   border-radius: 2rem;
@@ -67,18 +67,21 @@ const Card = styled.li`
 `;
 
 const CoverContainer = styled.div`
-  height: 300px;
-  width: 200px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  height: 200px;
+  width: 100px;
 `;
 const Title = styled.h2`
-  grid-column-start: 1;
+  grid-column-start: 2;
 `;
 const Author = styled.h3`
-  grid-column-start: 1;
+  grid-column-start: 2;
 `;
 
 const IconWrapper = styled.div`
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 1;
   height: 2.5rem;
   width: 2.5rem;
@@ -102,7 +105,7 @@ const Icon = styled.div`
 `;
 
 const Delete = styled.button`
-  grid-column-start: 2;
+  grid-column-start: 3;
   height: 3rem;
   width: 3rem;
   background-color: transparent;

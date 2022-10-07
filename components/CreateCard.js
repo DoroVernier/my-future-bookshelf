@@ -20,7 +20,6 @@ export default function CreateCard({ onAddBook }) {
           const book = data.items[0];
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
-
           const cover = book.volumeInfo.imageLinks.thumbnail;
           const newCard = {
             id: nanoid(),
@@ -34,7 +33,7 @@ export default function CreateCard({ onAddBook }) {
         } else {
           toast('Please enter a valid ISBN!', {
             hideProgressBar: false,
-            autoClose: 2000,
+            autoClose: 1000,
             type: 'error',
           });
           form.reset();
@@ -50,7 +49,6 @@ export default function CreateCard({ onAddBook }) {
           name="isbn"
           id="isbn"
           placeholder="9780571200832"
-          // autoComplete="off"
         />
       </Note>
       <WishButton>
