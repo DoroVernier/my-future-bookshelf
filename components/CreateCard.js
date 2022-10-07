@@ -20,8 +20,15 @@ export default function CreateCard({ onAddBook }) {
           const book = data.items[0];
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
-          const newCard = { id: nanoid(), title: title, author: author };
-          console.log(newCard);
+
+          const cover = book.volumeInfo.imageLinks.thumbnail;
+          const newCard = {
+            id: nanoid(),
+            title: title,
+            author: author,
+            cover: cover,
+          };
+
           onAddBook(newCard);
           form.reset();
         } else {
@@ -43,6 +50,7 @@ export default function CreateCard({ onAddBook }) {
           name="isbn"
           id="isbn"
           placeholder="9780571200832"
+          // autoComplete="off"
         />
       </Note>
       <WishButton>

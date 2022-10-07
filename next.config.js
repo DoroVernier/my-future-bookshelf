@@ -5,7 +5,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  images: { domains: ['googleapis.com'] },
+  images: { domains: ['googleapis.com', 'books.google.com'] },
 };
 
 module.exports = nextConfig;
