@@ -28,33 +28,27 @@ export default function WishList() {
 
   return (
     <>
-      <ImageWrapper>
-        <Image
-          alt="Background with books"
-          src={booksForStyle}
-          objectFit="cover"
-          layout="fill"
-          width={2103}
-          height={3155}
-        />
-      </ImageWrapper>
       <Wrapper>
-        <Headline>My future bookshelf</Headline>
-        {bookList.map((book) => {
-          return (
-            <BookCard
-              key={book.id}
-              cover={book.cover}
-              title={book.title}
-              author={book.author}
-              onDelete={() => deleteBook(book.id)}
-            />
-          );
-        })}
-        {/* <BookCard title="Grist" author="Abra Berens" />
+        <HeadlineWrapper>
+          <Headline>my future bookshelf</Headline>
+        </HeadlineWrapper>
+        <Container>
+          {bookList.map((book) => {
+            return (
+              <BookCard
+                key={book.id}
+                cover={book.cover}
+                title={book.title}
+                author={book.author}
+                onDelete={() => deleteBook(book.id)}
+              />
+            );
+          })}
+          {/* <BookCard title="Grist" author="Abra Berens" />
         <BookCard title="The wolf and the woodsman" author="Ava Reid" />
         <BookCard title="Dark Earth" author="Rebecca Stott" /> */}
-        <CreateCard onAddBook={addBook} />
+          <CreateCard onAddBook={addBook} />
+        </Container>
       </Wrapper>
     </>
   );
@@ -66,14 +60,27 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-const Headline = styled.h1``;
-
-const ImageWrapper = styled.div`
-  filter: blur(4px);
-  position: fixed;
-  height: 100vh;
+const HeadlineWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: sticky;
+  top: 0;
+  margin: 0;
+  background-color: #67597a;
   width: 100vw;
-  overflow: hidden;
-  z-index: -2;
+  height: 10vh;
+`;
+const Headline = styled.h1`
+  font-weight: 600;
+  margin: 0 5vw 0 0;
+  color: #eff9ff;
+  width: 10rem;
+`;
+const Container = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
 `;

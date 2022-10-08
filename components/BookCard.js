@@ -12,73 +12,80 @@ export default function BookCard({ title, author, cover, onDelete }) {
   };
 
   return (
-    <Container>
-      <Card>
-        <CoverContainer>
-          <Image
-            src={cover}
-            alt="Cover"
-            layout="responsive"
-            width={57}
-            height={80}
-          />
-        </CoverContainer>
-        <Title>{title}</Title>
-        <Author>{author}</Author>
-        <IconWrapper>
-          <Toggle onClick={handleClick}>
-            <Icon read={read}>
-              <Image
-                alt={read ? 'open eye' : 'closed eye'}
-                layout="responsive"
-                src={read ? openEye : closedEye}
-                width={64}
-                height={64}
-              />
-            </Icon>
-          </Toggle>
-        </IconWrapper>
-        <Delete onClick={onDelete}>
-          <Image
-            alt="bin"
-            layout="responsive"
-            src={bin}
-            width={64}
-            height={64}
-          />
-        </Delete>
-      </Card>
-    </Container>
+    <Card>
+      <CoverContainer>
+        <Image
+          src={cover}
+          alt="Cover"
+          layout="responsive"
+          width={57}
+          height={80}
+        />
+      </CoverContainer>
+      <Title>{title}</Title>
+      <Author>{author}</Author>
+      <IconWrapper>
+        <Toggle onClick={handleClick}>
+          <Icon read={read}>
+            <Image
+              alt={read ? 'open eye' : 'closed eye'}
+              layout="responsive"
+              src={read ? openEye : closedEye}
+              width={64}
+              height={64}
+            />
+          </Icon>
+        </Toggle>
+      </IconWrapper>
+      <Delete onClick={onDelete}>
+        <Image alt="bin" layout="responsive" src={bin} width={64} height={64} />
+      </Delete>
+    </Card>
   );
 }
 
-const Container = styled.ul`
-  list-style: none;
-`;
 const Card = styled.li`
-  background-color: rgba(228, 229, 242, 0.5);
+  background: linear-gradient(
+    270deg,
+    rgba(207, 217, 223, 1) 0%,
+    rgba(239, 249, 255, 1) 100%
+  );
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1rem;
   align-items: center;
   justify-items: center;
   border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   padding: 10px;
   width: 80vw;
+  height: 20vh;
+  border: none;
 `;
 
 const CoverContainer = styled.div`
-  grid-column-start: 1;
-  grid-row-start: 1 / span 3;
-
-  height: 200px;
-  width: 100px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  justify-self: fill;
+  align-self: fill;
+  min-width: 0px;
+  align-content: center;
+  max-height: 18vh;
+  min-width: 20vw;
+  max-width: 80vw;
 `;
 const Title = styled.h2`
   grid-column-start: 2;
+  color: #544e61;
+  font-weight: 400;
+  font-size: 20px;
 `;
-const Author = styled.h3`
+const Author = styled.p`
   grid-column-start: 2;
+  color: #544e61;
+  font-weight: 300;
+  font-size: 16px;
 `;
 
 const IconWrapper = styled.div`
@@ -99,8 +106,8 @@ const Toggle = styled.button`
   cursor: pointer;
 `;
 const Icon = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 1;
+  /* grid-column-start: 2;
+  grid-row-start: 1; */
   height: 2rem;
   width: 2rem;
 `;
