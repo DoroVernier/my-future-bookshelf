@@ -1,6 +1,6 @@
 import BookCard from '../components/BookCard';
 import Image from 'next/image';
-import bookshelf from '../public/bookshelf_d.png';
+import bookshelf from '../public/bookshelf_light.svg';
 import CreateCard from '../components/CreateCard';
 import styled from 'styled-components';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -32,13 +32,7 @@ export default function WishList() {
           <HeadlineWrapper>
             <Headline>my future bookshelf</Headline>
             <BookShelf>
-              <Image
-                alt="bookshelf"
-                layout="responsive"
-                src={bookshelf}
-                width={64}
-                height={64}
-              />
+              <bookshelf />
             </BookShelf>
           </HeadlineWrapper>
           <Input>
