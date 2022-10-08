@@ -58,12 +58,14 @@ export default function CreateCard({ onAddBook }) {
   );
 }
 const Form = styled.form`
+  position: fixed;
+  top: 100px;
   display: grid;
   grid-template-columns: 5fr 1fr;
 `;
 const Note = styled.label`
   display: grid;
-  gap: 1rem;
+
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-start: 1;
   align-self: center;
@@ -74,12 +76,6 @@ const NoteField = styled.input`
   grid-column-start: 2;
   margin-left: 1rem;
   height: 2rem;
-`;
-const Counter = styled.span`
-  grid-column-start: 3;
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  color: rgb(228, 229, 242);
 `;
 const WishButton = styled.button`
   display: inline-block;

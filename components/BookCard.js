@@ -59,6 +59,7 @@ const Card = styled.li`
   background-color: rgba(228, 229, 242, 0.5);
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
   align-items: center;
   justify-items: center;
   border-radius: 2rem;
@@ -68,8 +69,8 @@ const Card = styled.li`
 
 const CoverContainer = styled.div`
   grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-start: 1 / span 3;
+
   height: 200px;
   width: 100px;
 `;
