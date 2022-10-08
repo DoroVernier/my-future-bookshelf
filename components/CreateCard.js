@@ -59,7 +59,7 @@ export default function CreateCard({ onAddBook }) {
 }
 const Form = styled.form`
   position: fixed;
-  top: 100px;
+  top: 15vh;
   display: grid;
   grid-template-columns: 5fr 1fr;
 `;
