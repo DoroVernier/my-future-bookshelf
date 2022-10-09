@@ -58,30 +58,31 @@ export default function CreateCard({ onAddBook }) {
   );
 }
 const Form = styled.form`
-  position: fixed;
-  top: 15vh;
+  /* position: fixed;
+  top: 20vh;
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 5fr 1fr; */
 `;
 const Note = styled.label`
-  display: grid;
+  font-size: 1.5rem;
 
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-start: 1;
   align-self: center;
-  color: rgb(228, 229, 242);
-  font-size: 1.5rem;
+  /* color: rgb(228, 229, 242); */
 `;
 const NoteField = styled.input`
-  grid-column-start: 2;
+  /* grid-column-start: 2;
   margin-left: 1rem;
-  height: 2rem;
+  height: 2rem; */
 `;
 const WishButton = styled.button`
-  display: inline-block;
-  grid-area: 1 2 3 3;
   background-color: transparent;
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
+
+  /* display: inline-block;
+  grid-area: 1 2 3 3; */
 `;
