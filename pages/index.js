@@ -32,6 +32,8 @@ export default function WishList() {
       <Wrapper>
         {/* <HeadlineWrapper> */}
         <Headline>my future bookshelf</Headline>
+
+        <CreateCard onAddBook={addBook} />
         <Shelf>
           <Image src={Bookshelf} alt="bookshelf" height={66} width={53} />
         </Shelf>
@@ -48,8 +50,6 @@ export default function WishList() {
               />
             );
           })}
-
-          <CreateCard onAddBook={addBook} />
         </Container>
       </Wrapper>
     </>

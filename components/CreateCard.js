@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
@@ -7,6 +8,11 @@ import add from '../public/add.png';
 const apiURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:';
 
 export default function CreateCard({ onAddBook }) {
+  const [option, setOption] = useState({ choice: '' });
+
+  function chooseOption(event) {
+    setOption({ ...option, choice: event.target.value });
+  }
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -40,15 +46,37 @@ export default function CreateCard({ onAddBook }) {
         }
       });
   }
+  console.log('VALUES', option);
   return (
     <Form onSubmit={handleSubmit}>
+      <div onChange={chooseOption}>
+        <label>
+          <input type="radio" value="isbn" name="search-option" />
+          ISBN
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="title"
+            defaultChecked={true}
+            name="search-option"
+          />
+          Title
+        </label>
+
+        <label>
+          <input type="radio" value="author" name="search-option" />
+          Author
+        </label>
+      </div>
       <Note htmlFor="isbn">
         ISBN:
         <NoteField
           type="text"
           name="isbn"
           id="isbn"
-          placeholder="9780571200832"
+          // placeholder="9780571200832"
         />
       </Note>
       <WishButton>
@@ -86,3 +114,20 @@ const WishButton = styled.button`
   /* display: inline-block;
   grid-area: 1 2 3 3; */
 `;
+
+// } else if (data.totalItems >= 1) {
+//   {
+//     result.map((book) => {
+//       return (
+//         <DropdownList
+//           Key="id"
+//           textField="book"
+//           value={result}
+//           onChange={(nextValue) => setResult(nextResult.id)}
+//           // data={[(id = 'id'), , (title = { title })]}
+//         />
+//       );
+//     });
+//   }
+//   form.reset();
+// }

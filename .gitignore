@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # local files
-Abstellkammer.js
+/Z-Abstellkammer
