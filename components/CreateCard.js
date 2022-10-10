@@ -6,23 +6,25 @@ import Image from 'next/image';
 import add from '../public/add.png';
 
 export default function CreateCard({ onAddBook }) {
-  const [option, setOption] = useState({ choice: '' });
+  const [option, setOption] = useState('isbn');
   function chooseOption(event) {
-    setOption({ ...option, choice: event.target.value });
+    setOption(event.target.value);
   }
+  console.log(option);
 
   function handleSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
-    const searchTerm = form.value;
+    const searchTerm = form.input.value;
+    console.log(searchTerm);
     // const isbn = form.isbn.value.replace(/-/g, '');
-    const apiURL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
+    const apiURL = `https://www.googleapis.com/books/v1/volumes?q=`;
 
-    fetch(apiURL + searchTerm + ':' + event.target.value)
+    fetch(apiURL + option + ':' + searchTerm)
       .then((response) => response.json())
       .then((data) => {
-        if (data.totalItems === 1) {
+        if (data.totalItems >= 1) {
           const book = data.items[0];
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
@@ -49,9 +51,10 @@ export default function CreateCard({ onAddBook }) {
   // console.log('VALUES', option);
   return (
     <Form onSubmit={handleSubmit}>
-      <div onChange={chooseOption}>
+      <div>
         <label>
           <input
+            onChange={chooseOption}
             type="radio"
             value="isbn"
             name="search-option"
@@ -61,12 +64,22 @@ export default function CreateCard({ onAddBook }) {
         </label>
 
         <label>
-          <input type="radio" value="title" name="search-option" />
+          <input
+            onChange={chooseOption}
+            type="radio"
+            value="intitle"
+            name="search-option"
+          />
           Title
         </label>
 
         <label>
-          <input type="radio" value="author" name="search-option" />
+          <input
+            onChange={chooseOption}
+            type="radio"
+            value="inauthor"
+            name="search-option"
+          />
           Author
         </label>
       </div>
@@ -74,8 +87,8 @@ export default function CreateCard({ onAddBook }) {
         ISBN:
         <NoteField
           type="text"
-          name="isbn"
-          id="isbn"
+          name="input"
+          id="input"
           placeholder="9780571200832"
         />
       </Note>
