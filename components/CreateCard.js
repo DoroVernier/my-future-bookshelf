@@ -10,15 +10,12 @@ export default function CreateCard({ onAddBook }) {
   function chooseOption(event) {
     setOption(event.target.value);
   }
-  console.log(option);
 
   function handleSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
     const searchTerm = form.input.value;
-    console.log(searchTerm);
-    // const isbn = form.isbn.value.replace(/-/g, '');
     const apiURL = `https://www.googleapis.com/books/v1/volumes?q=`;
 
     fetch(apiURL + option + ':' + searchTerm)
@@ -83,7 +80,7 @@ export default function CreateCard({ onAddBook }) {
           Author
         </label>
       </div>
-      <Note htmlFor="isbn">
+      <Note>
         ISBN:
         <NoteField
           type="text"
