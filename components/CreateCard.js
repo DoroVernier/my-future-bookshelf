@@ -5,21 +5,21 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import add from '../public/add.png';
 
-const apiURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:';
-
 export default function CreateCard({ onAddBook }) {
   const [option, setOption] = useState({ choice: '' });
-
   function chooseOption(event) {
     setOption({ ...option, choice: event.target.value });
   }
+
   function handleSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
-    const isbn = form.isbn.value.replace(/-/g, '');
+    const searchTerm = form.value;
+    // const isbn = form.isbn.value.replace(/-/g, '');
+    const apiURL = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
 
-    fetch(apiURL + isbn)
+    fetch(apiURL + searchTerm + ':' + event.target.value)
       .then((response) => response.json())
       .then((data) => {
         if (data.totalItems === 1) {
@@ -37,7 +37,7 @@ export default function CreateCard({ onAddBook }) {
           onAddBook(newCard);
           form.reset();
         } else {
-          toast('Please enter a valid ISBN!', {
+          toast('😕 Better luck next time!', {
             hideProgressBar: false,
             autoClose: 1000,
             type: 'error',
@@ -46,22 +46,22 @@ export default function CreateCard({ onAddBook }) {
         }
       });
   }
-  console.log('VALUES', option);
+  // console.log('VALUES', option);
   return (
     <Form onSubmit={handleSubmit}>
       <div onChange={chooseOption}>
         <label>
-          <input type="radio" value="isbn" name="search-option" />
+          <input
+            type="radio"
+            value="isbn"
+            name="search-option"
+            defaultChecked={true}
+          />
           ISBN
         </label>
 
         <label>
-          <input
-            type="radio"
-            value="title"
-            defaultChecked={true}
-            name="search-option"
-          />
+          <input type="radio" value="title" name="search-option" />
           Title
         </label>
 
@@ -76,7 +76,7 @@ export default function CreateCard({ onAddBook }) {
           type="text"
           name="isbn"
           id="isbn"
-          // placeholder="9780571200832"
+          placeholder="9780571200832"
         />
       </Note>
       <WishButton>
