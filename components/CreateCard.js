@@ -81,13 +81,8 @@ export default function CreateCard({ onAddBook }) {
         </label>
       </div>
       <Note>
-        ISBN:
-        <NoteField
-          type="text"
-          name="input"
-          id="input"
-          placeholder="9780571200832"
-        />
+        ISBN, Title or Author:
+        <NoteField type="text" name="input" id="input" />
       </Note>
       <WishButton>
         <Image alt="add" layout="responsive" src={add} width={64} height={64} />
