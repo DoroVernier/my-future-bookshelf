@@ -1,22 +1,27 @@
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import Image from 'next/image';
 import add from '../public/add.png';
 
-const apiURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:';
-
 export default function CreateCard({ onAddBook }) {
+  const [option, setOption] = useState('isbn');
+  function chooseOption(event) {
+    setOption(event.target.value);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
     const form = event.target;
-    const isbn = form.isbn.value.replace(/-/g, '');
+    const searchTerm = form.input.value;
+    const apiURL = `https://www.googleapis.com/books/v1/volumes?q=`;
 
-    fetch(apiURL + isbn)
+    fetch(apiURL + option + ':' + searchTerm)
       .then((response) => response.json())
       .then((data) => {
-        if (data.totalItems === 1) {
+        if (data.totalItems >= 1) {
           const book = data.items[0];
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
@@ -31,7 +36,7 @@ export default function CreateCard({ onAddBook }) {
           onAddBook(newCard);
           form.reset();
         } else {
-          toast('Please enter a valid ISBN!', {
+          toast('😕 Better luck next time!', {
             hideProgressBar: false,
             autoClose: 1000,
             type: 'error',
@@ -40,14 +45,47 @@ export default function CreateCard({ onAddBook }) {
         }
       });
   }
+  // console.log('VALUES', option);
   return (
     <Form onSubmit={handleSubmit}>
-      <Note htmlFor="isbn">
+      <div>
+        <label>
+          <input
+            onChange={chooseOption}
+            type="radio"
+            value="isbn"
+            name="search-option"
+            defaultChecked={true}
+          />
+          ISBN
+        </label>
+
+        <label>
+          <input
+            onChange={chooseOption}
+            type="radio"
+            value="intitle"
+            name="search-option"
+          />
+          Title
+        </label>
+
+        <label>
+          <input
+            onChange={chooseOption}
+            type="radio"
+            value="inauthor"
+            name="search-option"
+          />
+          Author
+        </label>
+      </div>
+      <Note>
         ISBN:
         <NoteField
           type="text"
-          name="isbn"
-          id="isbn"
+          name="input"
+          id="input"
           placeholder="9780571200832"
         />
       </Note>
@@ -86,3 +124,20 @@ const WishButton = styled.button`
   /* display: inline-block;
   grid-area: 1 2 3 3; */
 `;
+
+// } else if (data.totalItems >= 1) {
+//   {
+//     result.map((book) => {
+//       return (
+//         <DropdownList
+//           Key="id"
+//           textField="book"
+//           value={result}
+//           onChange={(nextValue) => setResult(nextResult.id)}
+//           // data={[(id = 'id'), , (title = { title })]}
+//         />
+//       );
+//     });
+//   }
+//   form.reset();
+// }
