@@ -45,7 +45,7 @@ export default function CreateCard({ onAddBook }) {
         }
       });
   }
-  // console.log('VALUES', option);
+
   return (
     <Form onSubmit={handleSubmit}>
       <div>
@@ -57,31 +57,31 @@ export default function CreateCard({ onAddBook }) {
             name="search-option"
             defaultChecked={true}
           />
-          ISBN
+          isbn
         </label>
 
         <label>
           <input
             onChange={chooseOption}
             type="radio"
-            value="intitle"
+            value="title"
             name="search-option"
           />
-          Title
+          title
         </label>
 
         <label>
           <input
             onChange={chooseOption}
             type="radio"
-            value="inauthor"
+            value="author"
             name="search-option"
           />
-          Author
+          author
         </label>
       </div>
       <Note>
-        ISBN:
+        {option}
         <NoteField
           type="text"
           name="input"
@@ -96,19 +96,19 @@ export default function CreateCard({ onAddBook }) {
   );
 }
 const Form = styled.form`
-  /* position: fixed;
+  position: fixed;
   top: 20vh;
   display: grid;
-  grid-template-columns: 5fr 1fr; */
+  grid-template-columns: 5fr 1fr;
 `;
 const Note = styled.label`
-  font-size: 1.5rem;
+  font-size: 1rem;
 
-  /* display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-start: 1;
   align-self: center;
-  /* color: rgb(228, 229, 242); */
+  color: rgb(228, 229, 242);
 `;
 const NoteField = styled.input`
   /* grid-column-start: 2;

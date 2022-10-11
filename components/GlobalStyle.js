@@ -8,10 +8,12 @@ const GlobalStyle = createGlobalStyle`
 
     body {  
     font-family: 'Quicksand', sans-serif; 
-    margin: 0; 
-    padding: 0; 
+    max-width: 38rem; 
+    padding: 1rem; 
+    margin: auto; 
+
     
-    /* background-color: #EFF9FF;  */
+    background-color: #EFF9FF; 
     }
 `;
 

@@ -44,32 +44,32 @@ export default function BookCard({ title, author, cover, onDelete }) {
 }
 
 const Card = styled.li`
-  /* background: linear-gradient(
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0.5rem;
+  /* align-items: center; */
+  background: linear-gradient(
     270deg,
     rgba(207, 217, 223, 1) 0%,
     rgba(239, 249, 255, 1) 100%
-  ); */
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  object-fit: contain;
-  gap: 1rem;
-  align-items: center;
-  justify-items: center;
+  );
+  border: none;
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-
-  padding: 10px;
+  justify-items: center;
+  align-items: center;
+  padding: 0.75rem;
   width: 80vw;
   height: 20vh;
-  border: none;
 `;
 
 const CoverContainer = styled.div`
-  grid-column: 1 / 2;
+  grid-column: 1;
   grid-row: 1 / 3;
   justify-self: fill;
   align-self: fill;
   min-width: 0px;
+  justify-content: center;
   align-content: center;
   max-height: 15vh;
   min-width: 20vw;
@@ -79,13 +79,15 @@ const Title = styled.h2`
   grid-column-start: 2;
   color: #544e61;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
+  margin: 0;
 `;
 const Author = styled.p`
   grid-column-start: 2;
   color: #544e61;
   font-weight: 300;
   font-size: 16px;
+  margin: 0;
 `;
 
 const IconWrapper = styled.div`
@@ -114,8 +116,8 @@ const Icon = styled.div`
 
 const Delete = styled.button`
   grid-column-start: 3;
-  height: 3rem;
-  width: 3rem;
+  height: 1.7rem;
+  width: 1.7rem;
   background-color: transparent;
   border: none;
 `;

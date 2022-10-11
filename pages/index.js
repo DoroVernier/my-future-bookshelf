@@ -44,8 +44,8 @@ export default function WishList() {
               <BookCard
                 key={book.id}
                 cover={book.cover}
-                title={book.title}
-                author={book.author}
+                title={book.title.toLowerCase()}
+                author={book.author.toLowerCase()}
                 onDelete={() => deleteBook(book.id)}
               />
             );
