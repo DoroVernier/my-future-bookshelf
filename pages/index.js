@@ -7,14 +7,6 @@ import CreateCard from '../components/CreateCard';
 import styled from 'styled-components';
 import useLocalStorage from '../hooks/useLocalStorage';
 
-function loadFromLocal() {
-  try {
-    return JSON.parse(localStorage.getItem('book'));
-  } catch (error) {
-    return false;
-  }
-}
-
 export default function WishList() {
   const [bookList, setBookList] = useLocalStorage('book', []);
 

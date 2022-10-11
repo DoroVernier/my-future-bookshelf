@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import Image from 'next/image';
-import closedEye from '../public/closedEye.png';
-import openEye from '../public/openEye.png';
-import bin from '../public/bin.png';
+import closedEye from '../assets/closedEye.svg';
+import openEye from '../assets/openEye.svg';
+import bin from '../assets/bin.svg';
 
 export default function BookCard({ title, author, cover, onDelete }) {
   const [read, setRead] = useState(false);
@@ -22,10 +22,9 @@ export default function BookCard({ title, author, cover, onDelete }) {
           height={80}
         />
       </CoverContainer>
-      <Title>{title}</Title>
-      <Author>{author}</Author>
+      <Title>{title}</Title> <Author>{author}</Author>
       <IconWrapper>
-        <Toggle onClick={handleClick}>
+        <Eye onClick={handleClick}>
           <Icon read={read}>
             <Image
               alt={read ? 'open eye' : 'closed eye'}
@@ -35,7 +34,7 @@ export default function BookCard({ title, author, cover, onDelete }) {
               height={64}
             />
           </Icon>
-        </Toggle>
+        </Eye>
       </IconWrapper>
       <Delete onClick={onDelete}>
         <Image alt="bin" layout="responsive" src={bin} width={64} height={64} />
@@ -96,7 +95,7 @@ const IconWrapper = styled.div`
   width: 2.5rem;
 `;
 
-const Toggle = styled.button`
+const Eye = styled.button`
   background-color: transparent;
   position: relative;
   border: none;
@@ -109,14 +108,14 @@ const Toggle = styled.button`
 const Icon = styled.div`
   /* grid-column-start: 2;
   grid-row-start: 1; */
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
 `;
 
 const Delete = styled.button`
   grid-column-start: 3;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   background-color: transparent;
   border: none;
 `;
