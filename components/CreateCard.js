@@ -22,6 +22,7 @@ export default function CreateCard({ onAddBook }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.totalItems >= 1) {
+          console.log(option);
           const book = data.items[0];
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
@@ -48,7 +49,7 @@ export default function CreateCard({ onAddBook }) {
   // console.log('VALUES', option);
   return (
     <Form onSubmit={handleSubmit}>
-      <div>
+      <Radio>
         <label>
           <input
             onChange={chooseOption}
@@ -64,7 +65,7 @@ export default function CreateCard({ onAddBook }) {
           <input
             onChange={chooseOption}
             type="radio"
-            value="intitle"
+            value="title"
             name="search-option"
           />
           Title
@@ -74,16 +75,14 @@ export default function CreateCard({ onAddBook }) {
           <input
             onChange={chooseOption}
             type="radio"
-            value="inauthor"
+            value="authors"
             name="search-option"
           />
           Author
         </label>
-      </div>
-      <Note>
-        ISBN, Title or Author:
-        <NoteField type="text" name="input" id="input" />
-      </Note>
+      </Radio>
+      <Note>{option.toUpperCase()}</Note>
+      <NoteField type="text" name="input" id="input" />
       <WishButton>
         <Image alt="add" layout="responsive" src={add} width={64} height={64} />
       </WishButton>
@@ -91,13 +90,23 @@ export default function CreateCard({ onAddBook }) {
   );
 }
 const Form = styled.form`
-  /* position: fixed;
-  top: 20vh;
   display: grid;
-  grid-template-columns: 5fr 1fr; */
+  grid-template-columns: 5fr 1fr 1fr;
+  gap: 1rem;
+  position: fixed;
+  top: 20vh;
+  margin-top: 1vh;
+`;
+const Radio = styled.div`
+  grid-column: 1/3;
 `;
 const Note = styled.label`
-  font-size: 1.5rem;
+  grid-column-start: 1;
+  display: flex;
+  gap: 1rem;
+  align-self: flex-end;
+  font-size: 0.7rem;
+  margin: 2rem 1rem;
 
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -106,18 +115,17 @@ const Note = styled.label`
   /* color: rgb(228, 229, 242); */
 `;
 const NoteField = styled.input`
-  /* grid-column-start: 2;
+  grid-column-start: 2;
   margin-left: 1rem;
-  height: 2rem; */
+  height: 2rem;
 `;
 const WishButton = styled.button`
   background-color: transparent;
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
-
-  /* display: inline-block;
-  grid-area: 1 2 3 3; */
+  display: inline-block;
+  grid-area: 1 2 3 3;
 `;
 
 // } else if (data.totalItems >= 1) {

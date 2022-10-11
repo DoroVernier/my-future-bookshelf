@@ -30,14 +30,14 @@ export default function WishList() {
   return (
     <>
       <Wrapper>
-        {/* <HeadlineWrapper> */}
-        <Headline>my future bookshelf</Headline>
+        <HeadlineWrapper>
+          <Headline>my future bookshelf</Headline>
 
-        <CreateCard onAddBook={addBook} />
-        <Shelf>
-          <Image src={Bookshelf} alt="bookshelf" height={66} width={53} />
-        </Shelf>
-        {/* </HeadlineWrapper> */}
+          <Shelf>
+            <Image src={Bookshelf} alt="bookshelf" height={66} width={53} />
+          </Shelf>
+          <CreateCard onAddBook={addBook} />
+        </HeadlineWrapper>
         <Container>
           {bookList.map((book) => {
             return (
@@ -56,23 +56,27 @@ export default function WishList() {
   );
 }
 
-const Wrapper = styled.div``;
-// const HeadlineWrapper = styled.div`
-//   background-color: #67597a;
-//   display: grid;
-//   grid-template-columns: 2fr 2fr 1fr;
-//   justify-content: end;
-//   align-content: center;
-//   position: sticky;
-//   top: 0;
-//   margin: 0;
-//   padding-top: 5vh;
-//   width: 100vw;
-//   height: 10vh;
-// `;
+const Wrapper = styled.div`
+  /* margin: 0; */
+`;
+
+const HeadlineWrapper = styled.div`
+  /* background-color: #67597a; */
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  justify-content: end;
+  align-content: center;
+  position: sticky;
+  top: 0;
+  margin: 0 5vh 0 0;
+  padding-top: 5vh;
+  width: 100vw;
+  height: 15vh;
+`;
 const Headline = styled.h1`
   grid-column-start: 2;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
   width: 10rem;
 
@@ -81,7 +85,9 @@ const Headline = styled.h1`
 
 const Shelf = styled.div`
   grid-column-start: 3;
-  height: 15vh;
+  justify-self: center;
+  align-self: center;
+  height: 8vh;
   width: 10vw;
 `;
 
@@ -93,6 +99,7 @@ const Input = styled.div`
 
 const Container = styled.ul`
   list-style: none;
+  margin-top: 20vh;
 
   /* display: grid;
   grid-template-columns: 1fr 1fr;

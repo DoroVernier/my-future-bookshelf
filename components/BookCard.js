@@ -45,11 +45,11 @@ export default function BookCard({ title, author, cover, onDelete }) {
 }
 
 const Card = styled.li`
-  background: linear-gradient(
+  /* background: linear-gradient(
     270deg,
     rgba(207, 217, 223, 1) 0%,
     rgba(239, 249, 255, 1) 100%
-  );
+  ); */
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   object-fit: contain;
@@ -58,6 +58,7 @@ const Card = styled.li`
   justify-items: center;
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
   padding: 10px;
   width: 80vw;
   height: 20vh;
@@ -71,9 +72,9 @@ const CoverContainer = styled.div`
   align-self: fill;
   min-width: 0px;
   align-content: center;
-  max-height: 18vh;
+  max-height: 15vh;
   min-width: 20vw;
-  max-width: 80vw;
+  max-width: 20vw;
 `;
 const Title = styled.h2`
   grid-column-start: 2;
