@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import Image from 'next/image';
-import add from '../public/add.png';
+import add from '../assets/add.svg';
 
 export default function CreateCard({ onAddBook }) {
   const [option, setOption] = useState('isbn');
@@ -47,79 +47,110 @@ export default function CreateCard({ onAddBook }) {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          <input
-            onChange={chooseOption}
-            type="radio"
-            value="isbn"
-            name="search-option"
-            defaultChecked={true}
+    <FormWrapper>
+      <Form onSubmit={handleSubmit}>
+        <Note>
+          <RadioWrapper>
+            <label>
+              <Radio
+                onChange={chooseOption}
+                type="radio"
+                value="isbn"
+                name="search-option"
+                defaultChecked={true}
+              />
+              isbn
+            </label>
+            <label>
+              <Radio
+                onChange={chooseOption}
+                type="radio"
+                value="title"
+                name="search-option"
+              />
+              title
+            </label>
+            <label>
+              <Radio
+                onChange={chooseOption}
+                type="radio"
+                value="author"
+                name="search-option"
+              />
+              author
+            </label>
+          </RadioWrapper>
+          <NoteField
+            type="text"
+            name="input"
+            id="input"
+            placeholder="9780571200832"
           />
-          isbn
-        </label>
-
-        <label>
-          <input
-            onChange={chooseOption}
-            type="radio"
-            value="title"
-            name="search-option"
+        </Note>
+        <WishButton>
+          <Image
+            alt="add"
+            layout="responsive"
+            src={add}
+            width={64}
+            height={64}
           />
-          title
-        </label>
-
-        <label>
-          <input
-            onChange={chooseOption}
-            type="radio"
-            value="author"
-            name="search-option"
-          />
-          author
-        </label>
-      </div>
-      <Note>
-        {option}
-        <NoteField
-          type="text"
-          name="input"
-          id="input"
-          placeholder="9780571200832"
-        />
-      </Note>
-      <WishButton>
-        <Image alt="add" layout="responsive" src={add} width={64} height={64} />
-      </WishButton>
-    </Form>
+        </WishButton>
+      </Form>
+    </FormWrapper>
   );
 }
-const Form = styled.form`
+const FormWrapper = styled.div`
+  background-color: hotpink;
+  vertical-align: middle;
   position: fixed;
-  top: 20vh;
+  top: 12vh;
+  margin: 0 0 0 1rem;
+  height: 30vh;
+  opacity: 1;
+  z-index: 3;
+`;
+const Form = styled.form`
+  background-color: transparent;
+  position: fixed;
+  top: 15vh;
   display: grid;
   grid-template-columns: 5fr 1fr;
+  margin: 0;
 `;
 const Note = styled.label`
-  font-size: 1rem;
-
+  background-color: #eff9ff;
+  margin: 12 vh 1rem 1rem 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-start: 1;
+  grid-template-columns: 4fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+
   align-self: center;
-  color: rgb(228, 229, 242);
+  color: #544e61;
 `;
 const NoteField = styled.input`
-  /* grid-column-start: 2;
-  margin-left: 1rem;
-  height: 2rem; */
+  grid-column-start: 2;
+  height: 3rem;
+`;
+const RadioWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Radio = styled.input`
+  color: #544e61;
+  accent-color: #544e61;
 `;
 const WishButton = styled.button`
   background-color: transparent;
   height: 2rem;
   width: 2rem;
   border-radius: 100%;
+  &:active {
+    transform: translateY(1px);
+  }
 
   /* display: inline-block;
   grid-area: 1 2 3 3; */

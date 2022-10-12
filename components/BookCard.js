@@ -45,9 +45,11 @@ export default function BookCard({ title, author, cover, onDelete }) {
 
 const Card = styled.li`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 0.5rem;
-  /* align-items: center; */
+  grid-template-columns: fit-content(25%) fit-content(50%) fit-content(25%);
+  gap: 0 0.5rem;
+  overflow: hidden;
+  justify-items: center;
+  align-items: center;
   background: linear-gradient(
     270deg,
     rgba(207, 217, 223, 1) 0%,
@@ -56,33 +58,26 @@ const Card = styled.li`
   border: none;
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  justify-items: center;
-  align-items: center;
   padding: 0.75rem;
   width: 80vw;
   height: 20vh;
 `;
 
 const CoverContainer = styled.div`
-  grid-column: 1;
   grid-row: 1 / 3;
-  justify-self: fill;
-  align-self: fill;
-  min-width: 0px;
-  justify-content: center;
-  align-content: center;
-  max-height: 15vh;
-  min-width: 20vw;
   max-width: 20vw;
+  min-width: 20vw;
 `;
 const Title = styled.h2`
+  text-align: center;
   grid-column-start: 2;
   color: #544e61;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
 `;
 const Author = styled.p`
+  text-align: center;
   grid-column-start: 2;
   color: #544e61;
   font-weight: 300;
@@ -120,4 +115,7 @@ const Delete = styled.button`
   width: 1.7rem;
   background-color: transparent;
   border: none;
+  &:active {
+    transform: translateY(1px);
+  }
 `;

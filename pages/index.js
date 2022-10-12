@@ -30,14 +30,15 @@ export default function WishList() {
   return (
     <>
       <Wrapper>
-        {/* <HeadlineWrapper> */}
-        <Headline>my future bookshelf</Headline>
-
+        <HeadlineWrapper>
+          <Headline>my future bookshelf</Headline>
+          <Shelf>
+            <Image src={Bookshelf} alt="bookshelf" height={66} width={53} />
+          </Shelf>
+        </HeadlineWrapper>
+        <SpaceHolder></SpaceHolder>
         <CreateCard onAddBook={addBook} />
-        <Shelf>
-          <Image src={Bookshelf} alt="bookshelf" height={66} width={53} />
-        </Shelf>
-        {/* </HeadlineWrapper> */}
+
         <Container>
           {bookList.map((book) => {
             return (
@@ -56,46 +57,56 @@ export default function WishList() {
   );
 }
 
-const Wrapper = styled.div``;
-// const HeadlineWrapper = styled.div`
-//   background-color: #67597a;
-//   display: grid;
-//   grid-template-columns: 2fr 2fr 1fr;
-//   justify-content: end;
-//   align-content: center;
-//   position: sticky;
-//   top: 0;
-//   margin: 0;
-//   padding-top: 5vh;
-//   width: 100vw;
-//   height: 10vh;
-// `;
+const Wrapper = styled.div`
+  position: relative;
+`;
+const HeadlineWrapper = styled.div`
+  background-color: #67597a;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  justify-content: end;
+  gap: 0.3rem;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  margin: 0;
+  height: 12vh;
+  z-index: 1;
+`;
 const Headline = styled.h1`
   grid-column-start: 2;
   font-weight: 600;
-  margin: 0;
-  width: 10rem;
-
-  /* color: #eff9ff; */
+  color: #eff9ff;
+  margin: 1.2rem 0 0 0;
 `;
 
 const Shelf = styled.div`
+  display: grid;
+  align-content: center;
+  justify-content: start;
   grid-column-start: 3;
-  height: 15vh;
-  width: 10vw;
+  height: 18vh;
+  width: 25vw;
 `;
-
-const Input = styled.div`
-  background-color: #eff9ff;
-  min-height: 15vh;
-  margin: 5vh 0;
+const SpaceHolder = styled.div`
+  position: fixed;
+  top: 12vh;
+  height: 20vh;
+  //background-color: hotpink;
+  background: rgb(239, 249, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(239, 249, 255, 0) 0%,
+    rgba(239, 249, 255, 1) 20%,
+    rgba(239, 249, 255, 1) 100%
+  );
+  width: 100vw;
+  z-index: 1;
 `;
-
 const Container = styled.ul`
+  margin-top: 32vh;
   list-style: none;
-
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; */
-  /* z-index: -2; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
