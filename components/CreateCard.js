@@ -23,11 +23,13 @@ export default function CreateCard({ onAddBook }) {
       .then((data) => {
         if (data.totalItems >= 1) {
           const book = data.items[0];
+          const isbn = book.volumeInfo.isbn;
           const title = book.volumeInfo.title;
           const author = book.volumeInfo.authors[0];
           const cover = book.volumeInfo.imageLinks.thumbnail;
           const newCard = {
             id: nanoid(),
+            isbn: isbn,
             title: title,
             author: author,
             cover: cover,
@@ -67,6 +69,7 @@ export default function CreateCard({ onAddBook }) {
                 type="radio"
                 value="title"
                 name="search-option"
+                defaultChecked={true}
               />
               title
             </label>
@@ -101,7 +104,7 @@ export default function CreateCard({ onAddBook }) {
   );
 }
 const FormWrapper = styled.div`
-  background-color: hotpink;
+  background-color: #eff9ff;
   vertical-align: middle;
   position: fixed;
   top: 12vh;

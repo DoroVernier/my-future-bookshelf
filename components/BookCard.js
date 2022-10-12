@@ -22,7 +22,8 @@ export default function BookCard({ title, author, cover, onDelete }) {
           height={80}
         />
       </CoverContainer>
-      <Title>{title}</Title> <Author>{author}</Author>
+      <Title>{title}</Title>
+      <Author>{author}</Author>
       <IconWrapper>
         <Eye onClick={handleClick}>
           <Icon read={read}>
@@ -49,6 +50,7 @@ const Card = styled.li`
   gap: 0 0.5rem;
   overflow: hidden;
   justify-items: center;
+  justify-content: space-between;
   align-items: center;
   background: linear-gradient(
     270deg,
@@ -103,8 +105,6 @@ const Eye = styled.button`
   cursor: pointer;
 `;
 const Icon = styled.div`
-  /* grid-column-start: 2;
-  grid-row-start: 1; */
   height: 1.5rem;
   width: 1.5rem;
 `;

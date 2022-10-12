@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import BookCard from '../components/BookCard';
 import Image from 'next/image';
 import React from 'react';
@@ -53,6 +52,7 @@ export default function WishList() {
           })}
         </Container>
       </Wrapper>
+      <Fuss></Fuss>
     </>
   );
 }
@@ -92,7 +92,7 @@ const SpaceHolder = styled.div`
   position: fixed;
   top: 12vh;
   height: 20vh;
-  //background-color: hotpink;
+
   background: rgb(239, 249, 255);
   background: linear-gradient(
     0deg,
@@ -104,9 +104,20 @@ const SpaceHolder = styled.div`
   z-index: 1;
 `;
 const Container = styled.ul`
+  &::-webkit-scrollbar {
+    display: none;
+  }
   margin-top: 32vh;
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+const Fuss = styled.div`
+  width: 100vh;
+  height: 2rem;
+  position: fixed;
+  bottom: 0;
+
+  background-color: #67597a;
 `;
