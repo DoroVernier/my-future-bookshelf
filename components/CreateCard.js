@@ -154,24 +154,4 @@ const WishButton = styled.button`
   &:active {
     transform: translateY(1px);
   }
-
-  /* display: inline-block;
-  grid-area: 1 2 3 3; */
 `;
-
-// } else if (data.totalItems >= 1) {
-//   {
-//     result.map((book) => {
-//       return (
-//         <DropdownList
-//           Key="id"
-//           textField="book"
-//           value={result}
-//           onChange={(nextValue) => setResult(nextResult.id)}
-//           // data={[(id = 'id'), , (title = { title })]}
-//         />
-//       );
-//     });
-//   }
-//   form.reset();
-// }
