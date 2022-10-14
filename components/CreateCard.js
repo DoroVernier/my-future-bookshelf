@@ -38,10 +38,15 @@ export default function CreateCard({ onAddBook }) {
           onAddBook(newCard);
           form.reset();
         } else {
-          toast('😕 Better luck next time!', {
+          toast('Better luck next time! 📚', {
+            position: 'top-right',
+            autoClose: 2000,
             hideProgressBar: false,
-            autoClose: 1000,
-            type: 'error',
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'light',
+            type: 'info',
           });
           form.reset();
         }
@@ -88,6 +93,7 @@ export default function CreateCard({ onAddBook }) {
             name="input"
             id="input"
             placeholder="9780571200832"
+            autoComplete="false"
           />
         </Note>
         <WishButton>
