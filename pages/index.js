@@ -52,7 +52,7 @@ export default function WishList() {
           })}
         </Container>
       </Wrapper>
-      <Fuss></Fuss>
+      <Fuss>So many books, so little time.</Fuss>
     </>
   );
 }
@@ -114,10 +114,13 @@ const Container = styled.ul`
   gap: 1rem;
 `;
 const Fuss = styled.div`
-  width: 100vh;
+  width: 100vw;
   height: 2rem;
   position: fixed;
   bottom: 0;
-
+  color: #eff9ff;
   background-color: #67597a;
+  font-family: 'Allura', cursive;
+  text-align: center;
+  font-size: 1.8rem;
 `;
