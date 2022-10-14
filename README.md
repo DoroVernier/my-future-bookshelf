@@ -11,7 +11,10 @@ This App was developed as the Capstone-Project during the Web Development Bootca
 * [Styled Components](https://styled-components.com/)
 * [Prettier](https://prettier.io/)
 ## have a look
-https://github.com/DoroVernier/my-future-bookshelf/blob/main/public/doro_vernier.mov
+
+![my future bookshelf](https://github.com/DoroVernier/my-future-bookshelf/blob/main/public/doro_vernier.mov)
+
+
 
 ## try it out
 Try out [my future bookshelf](https://my-future-bookshelf.vercel.app/). 
