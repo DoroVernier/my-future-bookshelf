@@ -19,11 +19,10 @@ The following tools and libraries were used in the making:
 * [React-Toastify](https://www.npmjs.com/package/react-toastify)
 ## Have a look
 
-<div align="center">
-  <img src="./public/doro_vernier_my_future_bookshelf.gif"
-     height="410px"/>
-</div>
 
+  <img align="left" style="margin-right:16px" src="./public/doro_vernier_my_future_bookshelf.gif"
+     height="410px"/>
+     
 ## Try it out
 Try out [my future bookshelf](https://my-future-bookshelf.vercel.app/). 
 
