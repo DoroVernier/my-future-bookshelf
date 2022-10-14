@@ -1,5 +1,5 @@
 
-# my future bookshelf
+<img align="left" src="./public/mfb_logo.png"/>
 
 <img align="right" src="./public/doro_vernier_screenshot_mfb.png" alt="" width="220" style="margin-left:16px;"/>
 
