@@ -1,7 +1,7 @@
 
 <img align="left" src="./public/mfb_logo.png"/>
 
-<img align="right" src="./public/doro_vernier_screenshot_mfb.png" alt="" width="220" style="margin-left:16px;"/>
+<img align="right" src="./public/Iphone_mfb_2.png" alt="" width="220" style="margin-left:16px;"/>
 
 Read a book-review and plan to get the book at some point? A friend recommended a book and you want to remember it? **my future bookshelf** lets you keep track. Search for any book via ISBN, Author or Title and add it to your pile. Read the book but haven't bought it yet? Mark it as "read". Once the book is on your real bookshelf, easily delete it. 
 
