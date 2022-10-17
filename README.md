@@ -17,8 +17,6 @@ The following tools and libraries were used in the making:
 * [Google Books API](https://developers.google.com/books)
 * [Prettier](https://prettier.io/)
 * [React-Toastify](https://www.npmjs.com/package/react-toastify)
-## Have a look
-
 
   <img align="left" style="margin-right:16px" src="./public/doro_vernier_my_future_bookshelf.gif"
      height="410px"/>
