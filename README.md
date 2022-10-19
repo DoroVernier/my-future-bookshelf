@@ -18,10 +18,24 @@ The following tools and libraries were used in the making:
 * [Prettier](https://prettier.io/)
 * [React-Toastify](https://www.npmjs.com/package/react-toastify)
 
+## Try it out 
+  
   <img align="left" style="margin-right:16px" src="./public/doro_vernier_my_future_bookshelf.gif"
      height="410px"/>
      
-## Try it out
-Try out [my future bookshelf](https://my-future-bookshelf.vercel.app/). 
+ &nbsp; Try out [my future bookshelf](https://my-future-bookshelf.vercel.app/) on Vercel. <br/><br/>
+ &nbsp; <em>This app is optimized for mobile usage,<br/>
+ &nbsp; so please switch your browser to responsive mode (iPhone 6/7/8).</em>  
 
-This app is optimized for mobile usage, so please switch your browser to responsive mode (iPhone 6/7/8).
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+## How to
+- clone this repository
+- install all npm dependencies
+- npm install
+- to run the app in development mode npm run dev, then open http://localhost:3000 to view it in the browser
+- to create a build ready for deploying: npm run build
